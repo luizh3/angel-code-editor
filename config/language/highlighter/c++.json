@@ -1,0 +1,78 @@
+{
+  "rules": [
+    {
+      "color": "#2563eb",
+      "fontWeight": "",
+      "regex": "\\b[A-Za-z]+\\b",
+      "italic": false,
+      "words": [
+        "char",
+        "class",
+        "const",
+        "double",
+        "enum",
+        "explicit",
+        "friend",
+        "inline",
+        "int",
+        "long",
+        "namespace",
+        "operator",
+        "private",
+        "protected",
+        "public",
+        "short",
+        "signals",
+        "signed",
+        "slots",
+        "static",
+        "struct",
+        "template",
+        "typedef",
+        "typename",
+        "union",
+        "unsigned",
+        "virtual",
+        "void",
+        "volatile",
+        "include"
+      ]
+    },
+    {
+      "color": "#c084fc",
+      "fontWeight": "",
+      "regex": "\\bQ[A-Za-z]+\\b",
+      "italic": false,
+      "words": []
+    },
+    {
+      "color": "#9ca3af",
+      "fontWeight": "",
+      "regex": "//[^\n]*",
+      "italic": false,
+      "words": []
+    },
+    {
+      "color": "#14b8a6",
+      "fontWeight": "",
+      "regex": "\".*\"",
+      "italic": false,
+      "words": []
+    },
+    {
+      "color": "#f59e0b",
+      "fontWeight": "",
+      "regex": "\\b[A-Za-z0-9_]+(?=\\()",
+      "italic": false,
+      "words": []
+    },
+    {
+      "color": "#f59e0b",
+      "fontWeight": "",
+      "regexInit": "/\\*",
+      "regexEnd": "\\*/",
+      "italic": false,
+      "words": []
+    }
+  ]
+}

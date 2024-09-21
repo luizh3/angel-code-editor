@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>components/TextCompleter.qml</file>
+        <file>components/TextCompleterForm.ui.qml</file>
+        <file>components/RowsListForm.ui.qml</file>
+        <file>components/RowsList.qml</file>
+        <file>components/TextEditorPanel.qml</file>
+        <file>components/TextEditorPanelForm.ui.qml</file>
+        <file>Theme/Colors.qml</file>
+        <file>Theme/qmldir</file>
+        <file>components/AngelComboBoxForm.ui.qml</file>
+        <file>components/AngelComboBox.qml</file>
+        <file>PopupManager.qml</file>
+    </qresource>
+</RCC>
