@@ -11,7 +11,7 @@ public:
 
     static GeneralConfigSingleton& instance();
 
-    QList<LanguageModel*> languages() const;
+    QList<LanguageModel*> languages( const bool isCopy = true ) const;
     void setLanguages( const QList<LanguageModel*>& languages );
 
 private:

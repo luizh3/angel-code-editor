@@ -4,6 +4,8 @@ import QtQuick.Layouts 1.3
 
 import Control.TextDocumentHandlerControl 1.0
 
+import theme 1.0
+
 Item {
 
     TextDocumentHandlerControl {
@@ -26,14 +28,20 @@ Item {
             Layout.alignment: Qt.AlignTop
         }
 
+        Rectangle {
+            color: Colors.gray600
+            Layout.fillHeight: true
+            Layout.preferredWidth: 1
+        }
+
         TextArea {
             id: textArea
             Layout.fillHeight: true
             Layout.fillWidth: true
             selectByMouse: true
             mouseSelectionMode: TextEdit.SelectCharacters
-            color: "#FFFFFF"
-            selectionColor: "gray"
+            color: Colors.white100
+            selectionColor: Colors.gray300
             padding: 0
             topInset: 0
             textMargin: 0
@@ -47,13 +55,13 @@ Item {
             }
 
             background: Rectangle {
-                color: "#1f1f1f"
+                color: Colors.gray700
 
                 Rectangle {
                     visible: textArea.selectedText.length === 0
                     width: parent.width
                     height: textArea.cursorRectangle.height
-                    color: "#2b2b2b"
+                    color: Colors.gray600
                     y: textArea.cursorRectangle.y
                     radius: 1
                 }

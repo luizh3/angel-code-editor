@@ -7,7 +7,8 @@
 QString FileHelper::absolutePathApplication() {
 
     const QList<QString> DIRECTORYS_INVALIDS = {
-        "/debug"
+        "/debug",
+        "/build"
     };
 
     QString path = QDir::fromNativeSeparators( QCoreApplication::applicationDirPath());

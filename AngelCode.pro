@@ -13,30 +13,21 @@ SOURCES += \
         repository/generalconfigsrepository.cpp \
         repository/highlighterrepository.cpp \
         singleton/generalconfigsingleton.cpp \
+        view/control/dto/selectiondto.cpp \
+        view/control/languageselectormodalcontrol.cpp \
         view/control/syntaxhighlightercontrol.cpp \
         view/control/textcompletercontrol.cpp \
         view/control/textdocumenthandlercontrol.cpp
 
-RESOURCES += qml.qrc
+RESOURCES += qml.qrc \
+    icons.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
-QML_IMPORT_PATH = $$PWD/Theme
+message($$PWD/components)
+QML_IMPORT_PATH = $$PWD/components
 
 # Additional import path used to resolve QML modules just for Qt Quick Designer
 QML_DESIGNER_IMPORT_PATH =
-
-CONFIG( debug, debug|release ) {
-    DESTDIR = build/debug
-}
-
-CONFIG( release, debug|release ) {
-    DESTDIR = build/release
-}
-
-OBJECTS_DIR = $$DESTDIR/.obj
-MOC_DIR = $$DESTDIR/.moc
-RCC_DIR = $$DESTDIR/.qrc
-UI_DIR = $$DESTDIR/.u
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -51,6 +42,8 @@ HEADERS += \
     repository/generalconfigsrepository.h \
     repository/highlighterrepository.h \
     singleton/generalconfigsingleton.h \
+    view/control/dto/selectiondto.h \
+    view/control/languageselectormodalcontrol.h \
     view/control/syntaxhighlightercontrol.h \
     view/control/textcompletercontrol.h \
     view/control/textdocumenthandlercontrol.h

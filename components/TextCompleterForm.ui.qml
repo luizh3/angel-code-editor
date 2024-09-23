@@ -1,8 +1,10 @@
 import QtQuick 2.15
 
+import theme 1.0
+
 Rectangle {
     id: root
-    color: "green"
+    color: Colors.gray800
     width: 100
     height: sugestionsListView.height
 
@@ -16,7 +18,6 @@ Rectangle {
         id: sugestionsListView
         width: parent.width
         height: contentItem.childrenRect.height
-        spacing: 1
         currentIndex: 1
         snapMode: ListView.NoSnap
         visible: root.hasSugestions
@@ -24,12 +25,13 @@ Rectangle {
         delegate: Rectangle {
             width: 250
             height: 20
-            color: ListView.isCurrentItem ? "blue" : "red"
+            color: ListView.isCurrentItem ? Colors.gray300 : Colors.gray800
 
             Text {
                 text: modelData
                 anchors.verticalCenter: parent.verticalCenter
-                padding: 10
+                padding: 12
+                color: Colors.white100
             }
         }
     }
@@ -37,13 +39,14 @@ Rectangle {
     Rectangle {
         width: 250
         height: 20
-        color: "red"
+        color: Colors.gray300
         visible: !root.hasSugestions
 
         Text {
-            text: "No sugestions"
+            text: qsTr("No sugestions")
             anchors.verticalCenter: parent.verticalCenter
             padding: 10
+            color: Colors.white100
         }
     }
 }

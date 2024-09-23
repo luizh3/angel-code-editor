@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resources/icons/c++.png</file>
+        <file>resources/icons/javascript.png</file>
+        <file>resources/icons/sql.png</file>
+    </qresource>
+</RCC>

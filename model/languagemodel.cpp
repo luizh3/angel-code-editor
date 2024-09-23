@@ -1,6 +1,19 @@
 #include "languagemodel.h"
 
-LanguageModel::LanguageModel() {}
+LanguageModel::LanguageModel() :
+    _idLanguage( 0 ),
+    _dsName( "" ),
+    _dsIcon( "" ),
+    _dsCompleteFile( "" ),
+    _dsHighlightFile( "" ){}
+
+LanguageModel::LanguageModel( LanguageModel& language ) :
+    QObject(),
+    _idLanguage( language.idLanguage() ),
+    _dsName( language.dsName() ),
+    _dsIcon( language.dsIcon() ),
+    _dsCompleteFile( language.dsCompleteFile() ),
+    _dsHighlightFile( language.dsHighlightFile() ){}
 
 QString LanguageModel::dsName() const {
     return _dsName;
@@ -32,4 +45,12 @@ QString LanguageModel::dsHighlightFile() const {
 
 void LanguageModel::setDsHighlightFile( const QString& dsHighlightFile ) {
     _dsHighlightFile = dsHighlightFile;
+}
+
+int LanguageModel::idLanguage() const {
+    return _idLanguage;
+}
+
+void LanguageModel::setIdLanguage( int idLanguage ) {
+    _idLanguage = idLanguage;
 }

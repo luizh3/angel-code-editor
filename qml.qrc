@@ -7,10 +7,15 @@
         <file>components/RowsList.qml</file>
         <file>components/TextEditorPanel.qml</file>
         <file>components/TextEditorPanelForm.ui.qml</file>
-        <file>Theme/Colors.qml</file>
-        <file>Theme/qmldir</file>
         <file>components/AngelComboBoxForm.ui.qml</file>
         <file>components/AngelComboBox.qml</file>
         <file>PopupManager.qml</file>
+        <file>components/theme/Colors.qml</file>
+        <file>components/theme/qmldir</file>
+        <file>components/screens/LanguageSelectorModal.qml</file>
+        <file>components/screens/LanguageSelectorModalForm.ui.qml</file>
+        <file>components/screens/qmldir</file>
+        <file>components/screens/GenericModal.qml</file>
+        <file>components/screens/GenericModalForm.ui.qml</file>
     </qresource>
 </RCC>

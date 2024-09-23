@@ -9,8 +9,14 @@ GeneralConfigSingleton &GeneralConfigSingleton::instance() {
     return generalConfigSingleton;
 }
 
-QList<LanguageModel*> GeneralConfigSingleton::languages() const {
-    return _languages;
+QList<LanguageModel*> GeneralConfigSingleton::languages( const bool isCopy ) const {
+
+    if( !isCopy ){
+        return _languages;
+    }
+
+    return QList<LanguageModel*>(_languages);
+
 }
 
 void GeneralConfigSingleton::setLanguages( const QList<LanguageModel*>& languages) {

@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
     QCoreApplication::setApplicationName("AngelCodeStudio");
 
     QQmlApplicationEngine engine;
-    engine.addImportPath(":/Theme");
+    engine.addImportPath(":/components");
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(
         &engine,

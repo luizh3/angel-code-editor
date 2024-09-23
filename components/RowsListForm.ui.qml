@@ -2,6 +2,8 @@ import QtQuick 2.15
 
 import QtQuick.Layouts 1.3
 
+import theme 1.0
+
 Item {
     id: root
     property alias lineCount: repeater.model
@@ -26,7 +28,7 @@ Item {
                 width: parent.width
 
                 height: root.lineHeight
-                color: "#181818"
+                color: Colors.gray800
 
                 property bool isCurrentRow: root.lineCurrentY === rectangle.y
 
@@ -42,7 +44,7 @@ Item {
 
                 Text {
                     text: index + 1
-                    color: rectangle.isCurrentRow ? "#FFFFFF" : "gray"
+                    color: rectangle.isCurrentRow ? Colors.white100 : Colors.gray300
                     anchors.centerIn: parent
                 }
             }

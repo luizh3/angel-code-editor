@@ -3,14 +3,35 @@ import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.3
 
+import theme 1.0
+import screens 1.0
+
 import "components"
 
 ApplicationWindow {
-    width: 640
-    height: 480
+    width: 1280
+    height: 720
     visible: true
     title: qsTr("Angel Code Editor")
-    color: "#181818"
+    color: Colors.gray800
+
+    PopupManager {
+        id: popupManager
+        anchors.fill: parent
+    }
+
+    Component {
+        id: languageSelecter
+        LanguageSelectorModal {
+            width: 600
+            height: 500
+            anchors.centerIn: parent
+        }
+    }
+
+    Component.onCompleted: function () {
+        popupManager.push(languageSelecter)
+    }
 
     TextEditorPanel {
         anchors.fill: parent
@@ -18,12 +39,12 @@ ApplicationWindow {
     footer: Rectangle {
         height: 20
         width: parent.width
-        color: "#181818"
+        color: Colors.gray800
 
         Rectangle {
             width: parent.width
             height: 1
-            color: "#2b2b2b"
+            color: Colors.gray600
         }
     }
 }

@@ -1,6 +1,8 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 
+import theme 1.0
+
 Item {
     id: root
 
@@ -36,7 +38,7 @@ Item {
         parent: Overlay.overlay
         visible: false
 
-        property int _duration: AngelAnimation.duration.minimum
+        property int _duration: 200
 
         function hide() {
             stack.visible = false
@@ -55,14 +57,14 @@ Item {
         }
 
         background: Rectangle {
-            opacity: 0.3
-            color: "#FFFFFF"
+            // opacity: 0.3
+            // color: Colors.white100
+            color: "transparent"
 
             MouseArea {
                 anchors.fill: parent
             }
         }
-
         pushEnter: Transition {
             PropertyAnimation {
                 property: "opacity"
