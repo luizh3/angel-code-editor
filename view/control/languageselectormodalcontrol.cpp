@@ -4,8 +4,6 @@
 
 #include <singleton/generalconfigsingleton.h>
 
-
-
 void LanguageSelectorModalControl::doStart() {
 
     QList<SelectionDTO*> languagesDTO = toSelectionDTO( GeneralConfigSingleton::instance().languages( false ) );
