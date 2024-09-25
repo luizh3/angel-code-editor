@@ -10,7 +10,7 @@ class SyntaxHighlighterControl : public QSyntaxHighlighter {
     Q_OBJECT
 public:
     explicit SyntaxHighlighterControl( QTextDocument* textDocument, const QList<HighlighterModel*>& rules );
-
+    ~SyntaxHighlighterControl();
 protected:
     void highlightBlock( const QString& text );
 private:

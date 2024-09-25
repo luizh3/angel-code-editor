@@ -1,22 +1,18 @@
 #ifndef LANGUAGESELECTORMODALCONTROL_H
 #define LANGUAGESELECTORMODALCONTROL_H
 
-#include <QObject>
-#include <QVariant>
+#include "control.h"
 
 #include <model/languagemodel.h>
 
-#include "dto/selectiondto.h"
-
-class LanguageSelectorModalControl : public QObject {
+class LanguageSelectorModalControl : public Control {
     Q_OBJECT
 public:
     Q_INVOKABLE void doStart();
-signals:
-    void languages( const QVariant& languages );
-    void confirmed( const bool isConfimed );
 private:
-    QList<SelectionDTO*> toSelectionDTO( const QList<LanguageModel*>& languages ) const;
+    void onSelect();
+signals:
+    void selected( const LanguageModel* language );
 };
 
 #endif // LANGUAGESELECTORMODALCONTROL_H

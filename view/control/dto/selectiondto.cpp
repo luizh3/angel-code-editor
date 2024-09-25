@@ -1,11 +1,25 @@
 #include "selectiondto.h"
 
-SelectionDTO::SelectionDTO( const int idOption, const QString& dsOption, const QString& dsIcon, QObject* model ):
-    _model( model ),
-    _idOption( idOption ),
-    _isSelected( false ),
-    _dsOption( dsOption ),
-    _dsIcon( dsIcon ){}
+#include <QDebug>
+
+#include <QQmlEngine>
+
+SelectionDTO::SelectionDTO(const int idOption,
+                           const QString &dsOption,
+                           const QString &dsIcon,
+                           QObject* model)
+    : _model(model),
+    _idOption(idOption),
+    _isSelected(false),
+    _dsOption(dsOption),
+    _dsIcon(dsIcon)
+{
+    QQmlEngine::setObjectOwnership( this, QQmlEngine::CppOwnership );
+}
+
+SelectionDTO::~SelectionDTO() {
+    qInfo() << "SelectionDTO::~SelectionDTO";
+}
 
 int SelectionDTO::idOption() const {
     return _idOption;

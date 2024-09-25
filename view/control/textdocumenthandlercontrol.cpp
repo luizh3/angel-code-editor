@@ -4,7 +4,9 @@
 
 #include <repository/highlighterrepository.h>
 
-TextDocumentHandlerControl::TextDocumentHandlerControl() {}
+TextDocumentHandlerControl::TextDocumentHandlerControl() :
+     _textDocument( nullptr ),
+    _language( nullptr ) {}
 
 QQuickTextDocument* TextDocumentHandlerControl::textDocument() const {
     return _textDocument;
@@ -16,9 +18,28 @@ void TextDocumentHandlerControl::setTextDocument( QQuickTextDocument* textDocume
         return;
     }
 
-    _sqlSyntaxHighlighter.reset( new SyntaxHighlighterControl( textDocument->textDocument(), HighlighterRepository().rules("sql.json") ) );
-
     _textDocument = textDocument;
 
+    onSyntaxHighlitherChanged();
+
     emit textDocumentChanged();
+}
+
+void TextDocumentHandlerControl::languageChanged( const LanguageModel* language ) {
+
+    _language = language;
+
+    onSyntaxHighlitherChanged();
+}
+
+void TextDocumentHandlerControl::onSyntaxHighlitherChanged() {
+
+    if( !_textDocument || !_language ) {
+        return;
+    }
+
+    QList<HighlighterModel*> rules = HighlighterRepository().rules( _language->dsHighlightFile() );
+
+    _sqlSyntaxHighlighter.reset( new SyntaxHighlighterControl( _textDocument->textDocument(), rules ) );
+
 }

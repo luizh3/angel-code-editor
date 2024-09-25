@@ -8,9 +8,8 @@ namespace {
 constexpr const char EMPTY_CHARACTER = ' ';
 }
 
-TextCompleterControl::TextCompleterControl() {
-    _wordList = CompleterRepository().words( "sql.json" );
-}
+TextCompleterControl::TextCompleterControl() :
+    _wordList( {} ) {}
 
 QStringList TextCompleterControl::sugestions() const {
     return _sugestions;
@@ -72,7 +71,10 @@ void TextCompleterControl::completeSugestion( const QString& word ) {
     }
 
     cursor.insertText( word );
+}
 
+void TextCompleterControl::languageChanged( const LanguageModel* language ) {
+    _wordList = CompleterRepository().words( language->dsCompleteFile() );
 }
 
 QStringList TextCompleterControl::wordsByPart( const QString& part ) const {

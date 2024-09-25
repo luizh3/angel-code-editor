@@ -5,6 +5,8 @@
 #include <QPoint>
 #include <QQuickTextDocument>
 
+#include <model/languagemodel.h>
+
 class TextCompleterControl : public QObject {
     Q_OBJECT
     Q_PROPERTY( QStringList sugestions READ sugestions WRITE setSugestions NOTIFY sugestionsChanged FINAL );
@@ -23,6 +25,7 @@ public:
     void setTextDocument( QQuickTextDocument* textDocument );
 
     Q_INVOKABLE void completeSugestion( const QString& word );
+    Q_INVOKABLE void languageChanged( const LanguageModel* language );
 
 signals:
     void sugestionsChanged();

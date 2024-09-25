@@ -26,25 +26,17 @@ ApplicationWindow {
             width: 600
             height: 500
             anchors.centerIn: parent
+            onSelected: textEditorPanel.handleChangeCurrentLanguage(language)
         }
-    }
-
-    Component.onCompleted: function () {
-        popupManager.push(languageSelecter)
     }
 
     TextEditorPanel {
+        id: textEditorPanel
         anchors.fill: parent
     }
-    footer: Rectangle {
-        height: 20
-        width: parent.width
-        color: Colors.gray800
 
-        Rectangle {
-            width: parent.width
-            height: 1
-            color: Colors.gray600
-        }
+    footer: Footer {
+        width: parent.width
+        onLanguage: popupManager.push(languageSelecter)
     }
 }

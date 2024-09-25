@@ -12,6 +12,7 @@ class SelectionDTO : public QObject {
     Q_PROPERTY( bool isSelected READ isSelected WRITE setIsSelected NOTIFY isSelectedChanged FINAL )
 public:
     explicit SelectionDTO( const int idOption, const QString& dsOption, const QString& dsIcon, QObject* model );
+    ~SelectionDTO();
 
     int idOption() const;
     void setIdOption( int idOption );

@@ -17,5 +17,14 @@
         <file>components/screens/qmldir</file>
         <file>components/screens/GenericModal.qml</file>
         <file>components/screens/GenericModalForm.ui.qml</file>
+        <file>components/screens/SelectionListForm.ui.qml</file>
+        <file>components/screens/SelectionList.qml</file>
+        <file>components/screens/SelectionItem.qml</file>
+        <file>components/screens/SelectionItemForm.ui.qml</file>
+        <file>components/elements/BadgeButtonForm.ui.qml</file>
+        <file>components/elements/BadgeButton.qml</file>
+        <file>components/elements/qmldir</file>
+        <file>components/screens/FooterForm.ui.qml</file>
+        <file>components/screens/Footer.qml</file>
     </qresource>
 </RCC>

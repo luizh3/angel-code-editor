@@ -8,7 +8,11 @@
 
 SyntaxHighlighterControl::SyntaxHighlighterControl( QTextDocument* parent, const QList<HighlighterModel*>& rules )
     : QSyntaxHighlighter( parent ),
-    _rules( rules ){
+    _rules( rules )
+{}
+
+SyntaxHighlighterControl::~SyntaxHighlighterControl() {
+    qDeleteAll( _rules );
 }
 
 void SyntaxHighlighterControl::highlightBlock( const QString &text ) {

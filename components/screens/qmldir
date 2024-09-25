@@ -1,3 +1,4 @@
 module screens
 LanguageSelectorModal 1.0 LanguageSelectorModal.qml
 GenericModal 1.0 GenericModal.qml
+Footer 1.0 Footer.qml

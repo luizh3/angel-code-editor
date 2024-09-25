@@ -2,8 +2,11 @@
 #include <QQmlApplicationEngine>
 #include <QQmlEngine>
 
+#include <model./languagemodel.h>
+
 #include <view/control/textdocumenthandlercontrol.h>
 #include <view/control/textcompletercontrol.h>
+#include <view/control/languageselectormodalcontrol.h>
 
 #include <singleton/generalconfigsingleton.h>
 #include <repository/generalconfigsrepository.h>
@@ -20,10 +23,16 @@ int main(int argc, char *argv[]) {
 
     qmlRegisterType<TextDocumentHandlerControl>("Control.TextDocumentHandlerControl", 1, 0, "TextDocumentHandlerControl" );
     qmlRegisterType<TextCompleterControl>("Control.TextCompleterControl", 1, 0, "TextCompleterControl" );
+    qmlRegisterType<LanguageSelectorModalControl>("Control.LanguageSelectorModalControl", 1, 0, "LanguageSelectorModalControl" );
+
+    qRegisterMetaType<LanguageModel*>("LanguageModel*");
+    qRegisterMetaType<const LanguageModel*>("const LanguageModel*");
 
     QCoreApplication::setOrganizationName("AngelCodeStudio");
     QCoreApplication::setOrganizationDomain("AngelCodeStudio");
     QCoreApplication::setApplicationName("AngelCodeStudio");
+
+    loadConfigurations();
 
     QQmlApplicationEngine engine;
     engine.addImportPath(":/components");
@@ -38,8 +47,6 @@ int main(int argc, char *argv[]) {
         },
         Qt::QueuedConnection);
     engine.load(url);
-
-    loadConfigurations();
 
     return app.exec();
 }

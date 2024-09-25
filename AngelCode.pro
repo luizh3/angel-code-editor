@@ -13,6 +13,7 @@ SOURCES += \
         repository/generalconfigsrepository.cpp \
         repository/highlighterrepository.cpp \
         singleton/generalconfigsingleton.cpp \
+        view/control/control.cpp \
         view/control/dto/selectiondto.cpp \
         view/control/languageselectormodalcontrol.cpp \
         view/control/syntaxhighlightercontrol.cpp \
@@ -42,6 +43,7 @@ HEADERS += \
     repository/generalconfigsrepository.h \
     repository/highlighterrepository.h \
     singleton/generalconfigsingleton.h \
+    view/control/control.h \
     view/control/dto/selectiondto.h \
     view/control/languageselectormodalcontrol.h \
     view/control/syntaxhighlightercontrol.h \

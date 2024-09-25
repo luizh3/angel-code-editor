@@ -2,15 +2,9 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.3
 
-import Control.TextDocumentHandlerControl 1.0
-
 import theme 1.0
 
 Item {
-
-    TextDocumentHandlerControl {
-        textDocument: textArea.textDocument
-    }
 
     property alias textCompleter: textCompleter
     property alias textArea: textArea

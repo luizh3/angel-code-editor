@@ -14,14 +14,13 @@ Item {
         }
 
         stack.pop()
-        stack.onPop()
     }
 
     function push(popup) {
-        var popupCreated = stack.push(popup)
         stack.onPush()
-        popupCreated.close.connect(function onRemove() {
-            popupCreated.close.disconnect(onRemove)
+        var popupCreated = stack.push(popup)
+        popupCreated.onClose.connect(function onRemove() {
+            popupCreated.onClose.disconnect(onRemove)
             root.pop()
         })
         return popupCreated
@@ -56,11 +55,7 @@ Item {
             stack.hide()
         }
 
-        background: Rectangle {
-            // opacity: 0.3
-            // color: Colors.white100
-            color: "transparent"
-
+        background: Item {
             MouseArea {
                 anchors.fill: parent
             }

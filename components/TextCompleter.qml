@@ -76,4 +76,8 @@ TextCompleterForm {
     function start() {
         root.visible = true
     }
+
+    function languageChanged(language) {
+        control.languageChanged(language)
+    }
 }
