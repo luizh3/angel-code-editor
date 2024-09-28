@@ -7,14 +7,19 @@ QT += quick
 SOURCES += \
         helper/filehelper.cpp \
         main.cpp \
+        model/extensionmodel.cpp \
+        model/filemodel.cpp \
         model/highlightermodel.cpp \
         model/languagemodel.cpp \
         repository/completerrepository.cpp \
+        repository/filerepository.cpp \
+        repository/folderrepository.cpp \
         repository/generalconfigsrepository.cpp \
         repository/highlighterrepository.cpp \
         singleton/generalconfigsingleton.cpp \
         view/control/control.cpp \
         view/control/dto/selectiondto.cpp \
+        view/control/foldercontrol.cpp \
         view/control/languageselectormodalcontrol.cpp \
         view/control/syntaxhighlightercontrol.cpp \
         view/control/textcompletercontrol.cpp \
@@ -37,14 +42,19 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     helper/filehelper.h \
+    model/extensionmodel.h \
+    model/filemodel.h \
     model/highlightermodel.h \
     model/languagemodel.h \
     repository/completerrepository.h \
+    repository/filerepository.h \
+    repository/folderrepository.h \
     repository/generalconfigsrepository.h \
     repository/highlighterrepository.h \
     singleton/generalconfigsingleton.h \
     view/control/control.h \
     view/control/dto/selectiondto.h \
+    view/control/foldercontrol.h \
     view/control/languageselectormodalcontrol.h \
     view/control/syntaxhighlightercontrol.h \
     view/control/textcompletercontrol.h \

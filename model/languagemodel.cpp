@@ -1,11 +1,16 @@
 #include "languagemodel.h"
 
+#include <QQmlEngine>
+
 LanguageModel::LanguageModel() :
     _idLanguage( 0 ),
     _dsName( "" ),
     _dsIcon( "" ),
     _dsCompleteFile( "" ),
-    _dsHighlightFile( "" ){}
+    _dsHighlightFile( "" ){
+
+    QQmlEngine::setObjectOwnership( this, QQmlEngine::CppOwnership );
+}
 
 LanguageModel::LanguageModel( LanguageModel& language ) :
     QObject(),

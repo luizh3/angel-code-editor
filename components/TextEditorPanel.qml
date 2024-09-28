@@ -9,6 +9,10 @@ TextEditorPanelForm {
         textDocument: textArea.textDocument
     }
 
+    function readFile(file) {
+        control.readFile(file)
+    }
+
     function handleChangeCurrentLanguage(language) {
         control.languageChanged(language)
         textCompleter.languageChanged(language)
@@ -26,5 +30,10 @@ TextEditorPanelForm {
             textCompleter.currentPosition = Qt.binding(bindPosition)
             textCompleter.start()
         }
+    }
+
+    Shortcut {
+        sequence: "Ctrl+S"
+        onActivated: control.writeFile()
     }
 }

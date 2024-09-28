@@ -30,8 +30,6 @@ QList<LanguageModel*> GeneralConfigsRepository::languages() {
         language->setDsCompleteFile( settings.value("completeFile").toString() );
         language->setDsHighlightFile( settings.value("highlightFile").toString() );
 
-        QQmlEngine::setObjectOwnership( language, QQmlEngine::CppOwnership );
-
         languages.append( language );
     }
 
@@ -42,5 +40,39 @@ QList<LanguageModel*> GeneralConfigsRepository::languages() {
     qInfo() << "GeneralConfigsRepository::languages";
 
     return languages;
+}
+
+QList<ExtensionModel*> GeneralConfigsRepository::extensions() {
+
+    qInfo() << "GeneralConfigsRepository::extensions";
+
+    const QString dsPath = FileHelper::toAbsolutePath( { "config", "general.ini" } );
+
+    QList<ExtensionModel*> extensions = {};
+
+    QSettings settings( dsPath, QSettings::IniFormat );
+
+    settings.beginGroup("iconsExtensions");
+
+    const int nrRegisters = settings.beginReadArray("extension");
+
+    for (int index = 0; index < nrRegisters; ++index) {
+        settings.setArrayIndex(index);
+
+        ExtensionModel* extension = new ExtensionModel();
+        extension->setDsName( settings.value("name").toString() );
+        extension->setDsIcon( settings.value("nameIcon").toString() );
+        extension->setPattern( QRegularExpression( settings.value("regex").toString() ) );
+
+        extensions.append( extension );
+    }
+
+    settings.endArray();
+
+    settings.endGroup();
+
+    qInfo() << "GeneralConfigsRepository::extensions";
+
+    return extensions;
 
 }

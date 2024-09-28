@@ -5,7 +5,7 @@ import theme 1.0
 import elements 1.0
 
 Rectangle {
-    height: 20
+    height: 25
     width: 1024
     color: Colors.gray800
 

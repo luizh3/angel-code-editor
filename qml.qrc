@@ -26,5 +26,12 @@
         <file>components/elements/qmldir</file>
         <file>components/screens/FooterForm.ui.qml</file>
         <file>components/screens/Footer.qml</file>
+        <file>components/elements/TreeViewElementForm.ui.qml</file>
+        <file>components/elements/TreeViewElement.qml</file>
+        <file>components/screens/HeaderForm.ui.qml</file>
+        <file>components/screens/Header.qml</file>
+        <file>components/elements/MenuElement.qml</file>
+        <file>components/elements/MenuItemElement.qml</file>
+        <file>components/screens/FilesTree.qml</file>
     </qresource>
 </RCC>

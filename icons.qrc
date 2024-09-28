@@ -3,5 +3,18 @@
         <file>resources/icons/c++.png</file>
         <file>resources/icons/javascript.png</file>
         <file>resources/icons/sql.png</file>
+        <file>resources/icons/down-arrow.png</file>
+        <file>resources/icons/folder.png</file>
+        <file>resources/icons/rigth-arrow.png</file>
+        <file>resources/icons/file.png</file>
+        <file>resources/extensions/file.png</file>
+        <file>resources/extensions/folder.png</file>
+        <file>resources/extensions/c++.png</file>
+        <file>resources/extensions/javascript.png</file>
+        <file>resources/extensions/sql.png</file>
+        <file>resources/extensions/git.png</file>
+        <file>resources/extensions/json.png</file>
+        <file>resources/extensions/jsx.png</file>
+        <file>resources/extensions/markdown.png</file>
     </qresource>
 </RCC>

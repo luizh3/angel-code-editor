@@ -10,14 +10,14 @@ Rectangle {
     property alias vLabel: txtLabel.text
 
     width: 80
-    height: 20
+    height: 25
     color: mouseArea.containsMouse ? Colors.gray600 : Colors.gray800
 
     Text {
         id: txtLabel
         text: qsTr("Language")
         color: Colors.white100
-        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.centerIn: parent
         font.pixelSize: 12
     }
 

@@ -2,3 +2,5 @@ module screens
 LanguageSelectorModal 1.0 LanguageSelectorModal.qml
 GenericModal 1.0 GenericModal.qml
 Footer 1.0 Footer.qml
+Header 1.0 Header.qml
+FilesTree 1.0 FilesTree.qml

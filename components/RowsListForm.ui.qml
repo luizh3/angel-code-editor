@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.3
 
 import theme 1.0
 
-Item {
+Rectangle {
     id: root
     property alias lineCount: repeater.model
     property int lineCurrentY: 0

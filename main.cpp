@@ -4,15 +4,18 @@
 
 #include <model./languagemodel.h>
 
-#include <view/control/textdocumenthandlercontrol.h>
+#include <view/control/foldercontrol.h>
 #include <view/control/textcompletercontrol.h>
+#include <view/control/textdocumenthandlercontrol.h>
 #include <view/control/languageselectormodalcontrol.h>
 
 #include <singleton/generalconfigsingleton.h>
 #include <repository/generalconfigsrepository.h>
 
 void loadConfigurations() {
-    GeneralConfigSingleton::instance().setLanguages( GeneralConfigsRepository::languages() );
+    GeneralConfigSingleton* generalConfigSingleton = &GeneralConfigSingleton::instance();
+    generalConfigSingleton->setLanguages( GeneralConfigsRepository::languages() );
+    generalConfigSingleton->setExtensions( GeneralConfigsRepository::extensions() );
 }
 
 int main(int argc, char *argv[]) {
@@ -21,8 +24,9 @@ int main(int argc, char *argv[]) {
 #endif
     QGuiApplication app(argc, argv);
 
-    qmlRegisterType<TextDocumentHandlerControl>("Control.TextDocumentHandlerControl", 1, 0, "TextDocumentHandlerControl" );
+    qmlRegisterType<FolderControl>("Control.FolderControl", 1, 0, "FolderControl" );
     qmlRegisterType<TextCompleterControl>("Control.TextCompleterControl", 1, 0, "TextCompleterControl" );
+    qmlRegisterType<TextDocumentHandlerControl>("Control.TextDocumentHandlerControl", 1, 0, "TextDocumentHandlerControl" );
     qmlRegisterType<LanguageSelectorModalControl>("Control.LanguageSelectorModalControl", 1, 0, "LanguageSelectorModalControl" );
 
     qRegisterMetaType<LanguageModel*>("LanguageModel*");

@@ -5,62 +5,71 @@ import QtQuick.Layouts 1.3
 import theme 1.0
 
 Item {
-
+    id: root
     property alias textCompleter: textCompleter
     property alias textArea: textArea
     property alias rowsList: rowsList
 
-    RowLayout {
+    ScrollView {
+        id: scrollView
         anchors.fill: parent
-        spacing: 0
 
-        RowsList {
-            id: rowsList
-            lineCount: textArea.lineCount
-            lineCurrentY: textArea.cursorRectangle.y
-            lineHeight: textArea.cursorRectangle.height
-            Layout.alignment: Qt.AlignTop
-        }
+        RowLayout {
+            spacing: 0
+            width: Math.max(scrollView.implicitWidth, root.width)
+            height: Math.max(scrollView.implicitHeight, root.height)
 
-        Rectangle {
-            color: Colors.gray600
-            Layout.fillHeight: true
-            Layout.preferredWidth: 1
-        }
+            Rectangle {
+                color: Colors.gray600
+                Layout.fillHeight: true
+                Layout.preferredWidth: 1
+            }
 
-        TextArea {
-            id: textArea
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            selectByMouse: true
-            mouseSelectionMode: TextEdit.SelectCharacters
-            color: Colors.white100
-            selectionColor: Colors.gray300
-            padding: 0
-            topInset: 0
-            textMargin: 0
-            font.letterSpacing: 0
-            font.wordSpacing: 0
+            RowsList {
+                id: rowsList
+                lineCount: textArea.lineCount
+                lineCurrentY: textArea.cursorRectangle.y
+                lineHeight: textArea.cursorRectangle.height
+                Layout.alignment: Qt.AlignTop
+                Layout.preferredWidth: 40
+                Layout.fillHeight: true
+                color: Colors.gray800
+            }
 
-            //@disable-check M222
-            Keys.onPressed: function (event) {
+            TextArea {
+                id: textArea
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                selectByMouse: true
+                mouseSelectionMode: TextEdit.SelectCharacters
+                color: Colors.white100
+                selectionColor: Colors.gray300
+                padding: 0
+                topInset: 0
+                textMargin: 0
+                font.letterSpacing: 0
+                font.wordSpacing: 0
+                textFormat: TextEdit.MarkdownText
                 //@disable-check M222
-                textCompleter.onKeyPressed(event)
-            }
-
-            background: Rectangle {
-                color: Colors.gray700
-
-                Rectangle {
-                    visible: textArea.selectedText.length === 0
-                    width: parent.width
-                    height: textArea.cursorRectangle.height
-                    color: Colors.gray600
-                    y: textArea.cursorRectangle.y
-                    radius: 1
+                Keys.onPressed: function (event) {
+                    //@disable-check M222
+                    textCompleter.onKeyPressed(event)
                 }
+
+                background: Rectangle {
+                    color: Colors.gray700
+
+                    Rectangle {
+                        visible: textArea.selectedText.length === 0
+                        width: parent.width
+                        height: textArea.cursorRectangle.height
+                        color: Colors.gray600
+                        y: textArea.cursorRectangle.y
+                        radius: 1
+                    }
+                }
+                font.pixelSize: 16
             }
-            font.pixelSize: 16
         }
     }
 
