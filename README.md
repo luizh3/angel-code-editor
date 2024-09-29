@@ -19,3 +19,5 @@
 ![javascript](documentation/javascript.png)
 ![language-selector](documentation/language-selector.png)
 ![text-completer](documentation/text-completer.png)
+![menu](documentation/menu.png)
+![shortcuts](documentation/shortcuts.png)
