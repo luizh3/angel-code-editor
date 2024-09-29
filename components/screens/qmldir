@@ -4,3 +4,4 @@ GenericModal 1.0 GenericModal.qml
 Footer 1.0 Footer.qml
 Header 1.0 Header.qml
 FilesTree 1.0 FilesTree.qml
+KeyboardShortcutsModal 1.0 KeyboardShortcutsModal.qml

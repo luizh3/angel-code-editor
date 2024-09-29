@@ -7,20 +7,37 @@ MenuItem {
     id: root
     height: 36
 
+    property alias vShortcuts: keywordList.words
+
+    Shortcut {
+        sequence: vShortcuts.join("+")
+        onActivated: root.triggered()
+    }
+
     background: Rectangle {
         implicitWidth: root.width
         implicitHeight: root.height
         color: root.hovered ? Colors.gray300 : Colors.gray800
         border.color: Colors.gray600
     }
-    contentItem: Text {
-        id: txtLabel
+    contentItem: Item {
         anchors.fill: parent
-        text: root.text
-        font.pixelSize: 16
-        color: Colors.white100
-        verticalAlignment: Text.AlignVCenter
-        anchors.left: parent.left
-        anchors.leftMargin: 8
+
+        Text {
+            id: txtLabel
+            text: root.text
+            font.pixelSize: 14
+            color: Colors.white100
+            verticalAlignment: Text.AlignVCenter
+            anchors.left: parent.left
+            anchors.leftMargin: 8
+            anchors.verticalCenter: parent.verticalCenter
+        }
+        KeywordList {
+            id: keywordList
+            anchors.right: parent.right
+            anchors.rightMargin: 8
+            height: parent.height
+        }
     }
 }

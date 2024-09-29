@@ -11,6 +11,7 @@ MenuBar {
     width: 1024
 
     property alias menuItemOpenFolder: menuItemOpenFolder
+    property alias menuItemShortcuts: menuItemShortcuts
 
     background: Rectangle {
         color: Colors.gray800
@@ -49,6 +50,14 @@ MenuBar {
                 id: menuItemOpenFolder
                 text: qsTr("Open Folder...")
                 width: parent.width
+                vShortcuts: ["Ctrl", "O"]
+            }
+
+            MenuItemElement {
+                id: menuItemShortcuts
+                text: qsTr("Keyboard Shortcuts")
+                width: parent.width
+                vShortcuts: ["Ctrl", "I"]
             }
         }
     }

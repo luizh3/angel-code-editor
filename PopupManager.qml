@@ -57,7 +57,9 @@ Item {
 
         background: Item {
             MouseArea {
+                id: mouseArea
                 anchors.fill: parent
+                onClicked: root.clear()
             }
         }
         pushEnter: Transition {

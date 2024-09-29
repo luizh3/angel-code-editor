@@ -33,5 +33,9 @@
         <file>components/elements/MenuElement.qml</file>
         <file>components/elements/MenuItemElement.qml</file>
         <file>components/screens/FilesTree.qml</file>
+        <file>components/elements/KeywordIcon.qml</file>
+        <file>components/elements/KeywordList.qml</file>
+        <file>components/screens/KeyboardShortcutsModalForm.qml</file>
+        <file>components/screens/KeyboardShortcutsModal.qml</file>
     </qresource>
 </RCC>

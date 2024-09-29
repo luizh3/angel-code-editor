@@ -11,8 +11,8 @@ import "components"
 
 ApplicationWindow {
     id: root
-    width: 1280
-    height: 720
+    width: 1366
+    height: 768
     visible: true
     title: qsTr("Angel Code Editor")
     color: Colors.gray800
@@ -26,10 +26,15 @@ ApplicationWindow {
         folderDialog.open()
     }
 
+    function handleShortcuts() {
+        popupManager.push(keyboardShortcutsModalComponent)
+    }
+
     header: Header {
         width: parent.width
 
         onOpenFolder: root.handleOpenFolder()
+        onShortcuts: root.handleShortcuts()
     }
 
     PopupManager {
@@ -38,12 +43,19 @@ ApplicationWindow {
     }
 
     Component {
-        id: languageSelecter
+        id: languageSelectorModalComponent
         LanguageSelectorModal {
             width: 600
             height: 500
-            anchors.centerIn: parent
             onSelected: textEditorPanel.handleChangeCurrentLanguage(language)
+        }
+    }
+
+    Component {
+        id: keyboardShortcutsModalComponent
+        KeyboardShortcutsModal {
+            width: 600
+            height: 500
         }
     }
 
@@ -67,6 +79,6 @@ ApplicationWindow {
 
     footer: Footer {
         width: parent.width
-        onLanguage: popupManager.push(languageSelecter)
+        onLanguage: popupManager.push(languageSelectorModalComponent)
     }
 }
